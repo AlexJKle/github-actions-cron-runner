@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  cron-runner:
+    image: alexjkle/github-actions-cron-runner:latest
+    container_name: github-actions-cron-runner
+    restart: unless-stopped
+    volumes:
+      - ./volumes/config:/app/config
+    environment:
+      - ACTION_CRON_CONFIG_PATH=/app/config/config.json
+      - GITHUB_MASTER_TOKEN_PATH=/app/config/master_token
+      - REMOVE_GITHUB_MASTER_TOKEN_AT_STARTUP=False                                   

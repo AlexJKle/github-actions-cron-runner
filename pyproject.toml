@@ -1,0 +1,38 @@
+[project]
+name = "github-actions-cron-runner"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "AlexJKle",email = "58569431+AlexJKle@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flake8 (>=7.1.1,<8.0.0)",
+    "mypy (>=1.15.0,<2.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "schedule (>=1.2.2,<2.0.0)",
+    "croniter (>=6.0.0,<7.0.0)",
+    "pydantic (>=2.10.6,<3.0.0)",
+    "pytest (>=8.3.4,<9.0.0)",
+    "pytest-cov (>=6.0.0,<7.0.0)"
+]
+
+[tool.mypy]
+python_version = "3.13"
+disallow_untyped_defs = true
+show_error_codes = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+exclude = ["scripts", "docs", "tests"]
+files = ["github_actions_cron_runner/"]
+
+[tool.poetry.group.dev.dependencies]
+types-croniter = "^5.0.1.20241205"
+types-requests = "^2.32.0.20241016"
+debugpy = "^1.8.12"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
